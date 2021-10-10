@@ -1,0 +1,18 @@
+<div class="container">
+<h2 class="text-white"> Edit review </h2>
+
+<%= simple_form_for([@movie, @review]) do |f| %>
+  <div class="col-md-6 field text-white">
+    <%= f.label :rating %>
+    <%= f.number_field :rating, in: 1.0..5.0, step: 1.0 %> 
+    <%= image_tag("bat.png", width: "7%") %>
+  </div>
+  
+  <div class="col-md-6 field text-white">
+    <%= f.label :comment %>
+    <%= f.text_area :comment, rows: 3, style:'width:100%;' %>
+  </div>
+
+  <%= f.button :submit, class:"btn btn-primary btn-sm text-white" %>
+<% end %>
+</div>

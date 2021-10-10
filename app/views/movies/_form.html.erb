@@ -1,0 +1,55 @@
+<%= simple_form_for @movie, multipart: true do |f| %>
+  <% if @movie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+      <ul>
+        <% @movie.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-md-6 text-white">
+    <%= select_tag(:category_id, options_for_select(@categories, "category_id"), :prompt => "Select a movie category") %> 
+  </div>
+
+  <br>
+  
+  <div class="col-md-6 text-white">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="col-md-6 text-white">
+    <%= f.label :movie_image %>
+    <%= f.file_field :movie_image %>
+    <% if @movie.movie_image.attached? %>
+      <%= image_tag @movie.movie_image, style: "width: 200px; display: block" %>
+    <% end %>
+  </div>
+
+  <div class="col-md-6 text-white">
+    <%= f.label :release_date %>
+    <%= f.date_field :release_date %>
+  </div>
+
+  <div class="col-md-6 text-white">
+    <%= f.label :language %>
+    <%= f.text_field :language %>
+  </div>
+
+  <div class="col-md-6 text-white">
+    <%= f.label :genre %>
+    <%= f.text_area :genre, rows: 1, style: 'width:100%;' %>
+  </div>
+
+  <div class="col-md-6 text-white">
+    <%= f.label :description %>
+    <%= f.text_area :description, rows: 10, style: 'width:200%;', placeholder: "Enter description here" %>
+  </div>
+  
+  <div class="actions col-md-3">
+    <%= f.button :submit, class:"btn btn-success btn-sm text-white" %>
+  </div>
+<% end %>

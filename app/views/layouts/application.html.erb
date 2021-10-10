@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MovieApp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track'=> true %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track' => true %>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <% if user_signed_in? %>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">  
+        <ul class="nav navbar-nav mr-auto">
+          <li class="nav-item active">
+            <%= link_to "Home", movies_path, class: "nav-link" %>
+          </li>
+
+          <li class="nav-item active">
+            <%= link_to "Add Movie", new_movie_path, class: "nav-link" %>
+          </li>
+
+          <li class="nav-item active">
+            <%= link_to "Best Movies", ranking_path, class: "nav-link" %>
+          </li>
+
+          <li class="nav-item active">
+            <%= link_to "Statistics", statistics_path, class: "nav-link" %>       
+          </li>
+
+          <li class="nav-item active">
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-link" %>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown show nav-item ">
+            <button href="#" class="btn btn-secondary dropdown-toggle" id="navbarDropdown" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+            Categories <b class="caret"></b>
+            </button>
+
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <% Category.all.each do |category| %>
+                <li>   <%#class="<% 'active' if params[:category] == category.name %>
+                  <%= link_to category.name, movies_path(category: category.name), class: "dropdown-item" %>
+                </li>
+                <% end %>
+            </ul>  
+          </li>
+      
+          <form class="form-inline my-2 my-lg-0" action="/search">
+            <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search for a movie" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form> 
+        </ul>
+      </nav>
+  <% end %>
+    
+  <%# <div class="bg">   %>
+    <%= yield %>
+  <%# </div> %>
+
+  <%# <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+  
+</html>

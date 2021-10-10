@@ -1,0 +1,19 @@
+<%= simple_form_for([@movie, @movie.reviews.build]) do |f| %>
+
+  <div class="col-md-6 field text-white">
+    <%= f.label :rating %>
+    <%= image_tag("bat.png", width: "7%") %>
+    <%= f.number_field :rating, in: 1.0..5.0, step: 1.0 %>
+  </div>
+
+  <div class="col-md-6 field text-white">
+    <%= f.label :comment %>
+    <%= f.text_area :comment, rows: 3, style:'width:100%;' %>
+  </div>
+
+  <div class="col-md-3">
+  <%= f.button :submit, class:"btn btn-success btn-sm text-white" %>
+  </div>
+<% end %>
+
+ 

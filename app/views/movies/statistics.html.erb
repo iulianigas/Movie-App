@@ -1,0 +1,9 @@
+<div class="container">
+  <h2 class="text-white">Movie categories <%= pie_chart Category.group(:name).count %></h2>
+  <br>
+  <h2 class="text-white">Release date of movies <%= column_chart Movie.group(:release_date).count, xtitle: "Date", ytitle: "Number of movies" %></h2>
+  <br>
+  <h2 class="text-white">All the movies have the following review ratings: <%= column_chart Review.group(:rating).count, xtitle: "Number of ratings", ytitle: "Rating" %></h2>
+  <br>
+  <h2 class="text-white">Most reviewed movie <%= line_chart Review.group(:movie_id).count, xtitle: "Number of ratings", ytitle:"Movie id" %></h2>
+</div>

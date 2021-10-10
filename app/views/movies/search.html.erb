@@ -1,0 +1,8 @@
+<div class="container">
+<h1 class="text-white"> Searched movie </h1>
+<% @movies.each do |movie| %>
+  <%= link_to movie do %>
+    <%= image_tag(movie.movie_image, class: "movie-show") if movie.movie_image.attached? %>
+  <% end %>      
+<% end %>
+</div>

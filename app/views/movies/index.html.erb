@@ -1,0 +1,19 @@
+<div class="container">
+  <p id="notice" class="text-green"><%= notice %></p>
+  <%= image_tag("bat.png", class: "center-logo") %> 
+  <h1 class="text-white center-title">Little brown bat movies list</h1>
+  <h3 class="text-white"> <%= params[:category] %> </h3>
+  <% if @movies.count == 0 %>
+    <h5 class="text-white"> Unfortunately there are no movies! Please add a movie for this category! </h5>
+  <% else %> 
+    <% @movies.each do |movie| %>
+    <%= link_to movie do %>
+    <%= image_tag(movie.movie_image, class: "movie-show") if movie.movie_image.attached? %>
+    <% end %>     
+  <% end %> 
+  <% end %>
+  <br>
+  <div class="pagination">
+    <%= paginate @movies, class: "text-white" %>
+  </div>
+</div>

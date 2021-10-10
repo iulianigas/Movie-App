@@ -1,0 +1,22 @@
+<br>
+<div class="movie-review">
+<p class="text-white">User <%= review.user_id %>
+<%= image_tag("person.svg") %>
+<p class="text-white"> Rating: <%= review.rating %>/5 <%= image_tag("bat.png", width: "7%") %></p>
+<%# <p class="text-white"><%= review.rating /10 </p> %>
+
+<%# <div class="review-rating" data-score="<%= review.rating "></div> %>
+<%# <div id=“rating-form”> %>
+  <%# <label class="text-white"> Rating </label> %>
+<%# </div> %>
+
+<p class="text-white"> Comment: <%= review.comment %> </p>
+
+<% if user_signed_in? %>
+  <% if review.user_id == current_user.id %>
+    <%= link_to "Edit review", edit_movie_review_path(review.movie, review), class: "btn btn-info btn-sm text-white" %>
+    <%= link_to "Delete review", movie_review_path(review.movie, review), class: "btn btn-danger btn-sm text-white", method: :delete, data: { confirm: "Are you sure that you want to delete  your movie review?" } %>
+    <br>
+  <% end %>
+<% end %>
+</div>

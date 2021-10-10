@@ -1,0 +1,58 @@
+<div class="container">
+<h2 class="text-white">Editing Movie</h2>
+
+<br>
+
+<%= simple_form_for @movie do |f| %>
+  <div class="col-md-6 text-white">
+    <%= f.label :category %>
+    <%= f.select :category_id, @categories %> 
+  </div>
+
+  <div class="col-md-6 text-white">
+    <%= f.label :title %>
+    <%= f.text_field :title  %>
+  </div>
+
+  <br>
+
+  <div class="col-md-6 field text-white">
+    <% if @movie.movie_image.attached? %>
+      <%= image_tag @movie.movie_image, style: "width: 200px; display: block" %>
+    <% end %>
+
+    <br>
+
+    <%= f.label :movie_image %>
+    <%= f.file_field :movie_image %>
+  </div>
+
+  <div class="col-md-6 field text-white">
+    <%= f.label :release_date %>
+    <%= f.date_field :release_date %>
+  </div>
+
+  <div class="col-md-6 field text-white">
+    <%= f.label :language %>
+    <%= f.text_field :language %>
+  </div>
+
+  <div class="col-md-6 field text-white">
+    <%= f.label :genre %>
+    <%= f.text_area :genre, rows: 1, style: 'width:100%;' %>
+  </div>
+
+  <div class="col-md-6 field text-white">
+    <%= f.label :description %>
+    <%= f.text_area :description, rows: 10, style: 'width:200%;' %>
+  </div>
+
+  <div class="actions col-md-3">
+    <%= f.button :submit, class:"btn btn-success btn-sm text-white" %>
+  </div>
+<% end %>
+<div class="col-md-3">
+  <%= link_to 'Back', movies_path, class:"btn btn-primary btn-sm text-white" %>
+  <%= link_to 'Show', @movie, class:"btn btn-primary btn-sm text-white" %> |
+</div>
+</div>

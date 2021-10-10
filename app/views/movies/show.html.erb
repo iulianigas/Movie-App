@@ -1,0 +1,58 @@
+<div class="container">
+<p id="notice" class="text-white"><%= notice %></p>
+
+<div class="row">
+
+  <div class="col-md-4 text-white">
+    <h2><%= @movie.title %></h2>  
+  <%# <h3><%= @movie.category.name </h3> %> 
+  <%# <br> %>
+    <h6><%= @movie.release_date %></h6>
+
+    <br>
+
+    <%= @movie.language %>
+
+    <br>
+
+    <%= @movie.genre %>
+
+    <br>
+
+    <%= @movie.description %>
+  </div>
+
+  <div class="col-md-8">
+    <%= image_tag(@movie.movie_image,  style: "width: 350px; height: 500px") if @movie.movie_image.attached? %>
+  </div>
+</div>
+
+<br>
+<br>
+
+  <div class="reviews">
+      <h4 class="text-white">Reviews</h4>
+
+      <%# <div class="field">  
+        <%= select_tag 'user_id', options_for_select(Review.all.collect{ |u| [u.user_id, u.rating]}, { include_black: true}) 
+        <%= submit_tag 'Filter' 
+      </div>   %>
+      
+      <div class="col-md-8">
+        <%= render @movie.reviews %>
+        <br>
+        <%= link_to "Rate this movie", new_movie_review_path(@movie), class: "btn btn-success btn-sm text-white" %>
+      </div>
+  </div>
+       
+<div class="review-buttons">
+<%= link_to 'Back', movies_path, class:"btn btn-primary btn-sm text-white" %>
+
+<% if @movie.user_id == current_user.id %>
+
+  <%= link_to 'Edit', edit_movie_path(@movie), class:"btn btn-primary btn-sm text-white" %>
+  <%= link_to 'Destroy', @movie, method: :delete, data: { confirm: 'Are you sure you want to delete movie?' }, class:"btn btn-primary btn-sm btn-danger text-white" %>
+  
+<% end %>
+</div>
+

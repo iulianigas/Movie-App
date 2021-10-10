@@ -1,0 +1,122 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require bootstrap-table/bootstrap-table
+ *= require_tree .
+ *= require_self
+ 
+ */
+
+ // Custom bootstrap variables must be set or imported *before* bootstrap.
+ @import 'bootstrap';
+
+body {
+  background: url(/assets/logo.jpg) no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  margin-bottom: 50px;
+}
+
+// .content {
+//   margin: 10 px auto;
+//   position: absolute;
+//   top: 50px;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   background-image: url(/assets/logo.jpg);
+//   background-size: 100%;
+//   background-position: center top;
+//   height: 100vh;
+// }
+
+// .bg {
+//   // background: url(/assets/logo.jpg) no-repeat center center fixed;
+// }
+
+.center-logo {
+  display: inline;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 12px;
+}
+
+.center-title {
+  display: inline;
+}
+.movie-show {
+  width: 200px;
+  height: 250px;
+  margin: 5px;
+}
+
+.review-buttons {
+  margin-top: 50px;
+}
+
+.review-add {
+  margin-top: 20px;
+}
+
+.reviews {
+  padding: 15px;
+}
+
+.movie-review {
+  background-color: #343a40;
+  border-color: #5bc0de;
+  border-style: inset;
+  left: 15px;
+  right: 15px;
+  padding: 10px;
+}
+
+.pagination a, .pagination span.current, .pagination span.gap {
+  float: left;
+  padding: 0 14px;
+  line-height: 38px;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid #DDD;
+  border-left-width: 0;
+}
+
+.pagination {
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  .first{
+      padding : 0;
+      float: none;
+      border: none;
+  }
+  .prev {
+      padding : 0;
+      float: none;
+      border: none;
+  }
+  .page{
+      padding : 0;
+      float: none;
+      border: none;
+  }
+  .next{
+      padding : 0;
+      float: none;
+      border: none;
+  }
+  .last{
+      padding : 0;
+      float: none;
+      border: none;
+  }
+}
