@@ -55,7 +55,7 @@ Lucrarea de licenta, o aplicatie web de gestionarea a filmelor pe care am dezvol
   <img src="https://github.com/iulianigas/Movie-App/blob/master/pictures/best_movies.JPG" width="800px"</img> 
 </div>
 
-<p align="center"> Statistica filmelor din aplicatie </p>
+<p align="center"> Pagina care contine statistica filmelor din aplicatie </p>
 <div align="center">
   <img src="https://github.com/iulianigas/Movie-App/blob/master/pictures/statistics.JPG" width="400px"</img> 
   <img src="https://github.com/iulianigas/Movie-App/blob/master/pictures/statistics_2.JPG" width="400px"</img>
