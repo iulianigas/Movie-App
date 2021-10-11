@@ -50,7 +50,7 @@ Lucrarea de licenta, o aplicatie web de gestionarea a filmelor pe care am dezvol
   </div>
 </div>
 
-<p align="center"> Pagina cu cele mai bune filme </p>
+<p align="center"> Pagina cu cele mai bune filme, fiecare film putand fi vizionat pe Netflix printr-un simplu click pe numele acestuia </p>
 <div align="center">
   <img src="https://github.com/iulianigas/Movie-App/blob/master/pictures/best_movies.JPG" width="800px"</img> 
 </div>
